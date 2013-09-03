@@ -21,11 +21,11 @@ public class ContextNodeTypesSample {
 		// create and print a graph with a collection
 
 		Graph graph = MemoryGraphFactory.getInstance().openGraph();
-		ContextNode contextNode = graph.getRootContextNode().createContextNode(XDI3SubSegment.create("=markus"));
+		ContextNode contextNode = graph.getRootContextNode().setContextNode(XDI3SubSegment.create("=markus"));
 
 		XdiAttributeClass telAttributeClass = XdiAbstractContext.fromContextNode(contextNode).getXdiAttributeClass(XDI3SubSegment.create("+tel"), true);
-		telAttributeClass.setXdiInstanceUnordered(null).getContextNode().createLiteral("+1.206.555.1111");
-		telAttributeClass.setXdiInstanceUnordered(null).getContextNode().createLiteral("+1.206.555.2222");
+		telAttributeClass.setXdiInstanceUnordered(null).getXdiValue(true).getContextNode().setLiteral("+1.206.555.1111");
+		telAttributeClass.setXdiInstanceUnordered(null).getXdiValue(true).getContextNode().setLiteral("+1.206.555.2222");
 
 		System.out.println(graph.toString(new MimeType("application/xdi+json;pretty=1")));
 
@@ -39,7 +39,7 @@ public class ContextNodeTypesSample {
 
 		for (Iterator<XdiAttributeInstanceUnordered> i = telCollection2.getXdiInstancesUnordered(); i.hasNext(); ) {
 
-			System.out.println(i.next().getContextNode().getLiteral().getLiteralData());
+			System.out.println(i.next().getXdiValue(false).getContextNode().getLiteral().getLiteralData());
 		}
 	}
 }
