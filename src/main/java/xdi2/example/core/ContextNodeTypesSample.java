@@ -23,7 +23,7 @@ public class ContextNodeTypesSample {
 		Graph graph = MemoryGraphFactory.getInstance().openGraph();
 		ContextNode contextNode = graph.getRootContextNode().setContextNode(XDI3SubSegment.create("=markus"));
 
-		XdiAttributeCollection telAttributeCollection = XdiAbstractContext.fromContextNode(contextNode).getXdiAttributeCollection(XDI3SubSegment.create("+tel"), true);
+		XdiAttributeCollection telAttributeCollection = XdiAbstractContext.fromContextNode(contextNode).getXdiAttributeCollection(XDI3SubSegment.create("[<+tel>]"), true);
 		telAttributeCollection.setXdiMemberUnordered(null).getXdiValue(true).getContextNode().setLiteral("+1.206.555.1111");
 		telAttributeCollection.setXdiMemberUnordered(null).getXdiValue(true).getContextNode().setLiteral("+1.206.555.2222");
 
@@ -35,7 +35,7 @@ public class ContextNodeTypesSample {
 		XDIReaderRegistry.getAuto().read(graph2, new StringReader(graph.toString()));
 		ContextNode contextNode2 = graph.getDeepContextNode(XDI3Segment.create("=markus"));
 
-		XdiAttributeCollection telCollection2 = XdiAbstractContext.fromContextNode(contextNode2).getXdiAttributeCollection(XDI3SubSegment.create("+tel"), false);
+		XdiAttributeCollection telCollection2 = XdiAbstractContext.fromContextNode(contextNode2).getXdiAttributeCollection(XDI3SubSegment.create("[<+tel>]"), false);
 
 		for (Iterator<XdiAttributeMemberUnordered> i = telCollection2.getXdiMembersUnordered(); i.hasNext(); ) {
 
