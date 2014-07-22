@@ -21,7 +21,7 @@ public class SimpleCoreSample {
 		ContextNode root = graph.getRootContextNode();
 		ContextNode markus = root.setContextNode(XDI3SubSegment.create("=markus"));
 		ContextNode animesh = root.setContextNode(XDI3SubSegment.create("=animesh"));
-		ContextNode name = markus.setContextNode(XDI3SubSegment.create("<+name>"));
+		ContextNode name = markus.setContextNode(XDI3SubSegment.create("<#name>"));
 		ContextNode value = name.setContextNode(XDI3SubSegment.create("&"));
 		Relation relation = markus.setRelation(XDI3Segment.create("+friend"), animesh);
 		Literal literal = value.setLiteral("Markus Sabadello");
