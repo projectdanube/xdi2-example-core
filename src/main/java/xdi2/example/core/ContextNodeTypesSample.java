@@ -11,8 +11,8 @@ import xdi2.core.features.nodetypes.XdiAttributeMemberUnordered;
 import xdi2.core.impl.memory.MemoryGraphFactory;
 import xdi2.core.io.MimeType;
 import xdi2.core.io.XDIReaderRegistry;
-import xdi2.core.xri3.XDI3Segment;
-import xdi2.core.xri3.XDI3SubSegment;
+import xdi2.core.syntax.XDIAddress;
+import xdi2.core.syntax.XDIArc;
 
 public class ContextNodeTypesSample {
 
@@ -21,9 +21,9 @@ public class ContextNodeTypesSample {
 		// create and print a graph with a collection
 
 		Graph graph = MemoryGraphFactory.getInstance().openGraph();
-		ContextNode contextNode = graph.getRootContextNode().setContextNode(XDI3SubSegment.create("=markus"));
+		ContextNode contextNode = graph.getRootContextNode().setContextNode(XDIArc.create("=markus"));
 
-		XdiAttributeCollection telAttributeCollection = XdiAbstractContext.fromContextNode(contextNode).getXdiAttributeCollection(XDI3SubSegment.create("[<+tel>]"), true);
+		XdiAttributeCollection telAttributeCollection = XdiAbstractContext.fromContextNode(contextNode).getXdiAttributeCollection(XDIArc.create("[<+tel>]"), true);
 		telAttributeCollection.setXdiMemberUnordered(null).getXdiValue(true).getContextNode().setLiteral("+1.206.555.1111");
 		telAttributeCollection.setXdiMemberUnordered(null).getXdiValue(true).getContextNode().setLiteral("+1.206.555.2222");
 
@@ -33,9 +33,9 @@ public class ContextNodeTypesSample {
 
 		Graph graph2 = MemoryGraphFactory.getInstance().openGraph();
 		XDIReaderRegistry.getAuto().read(graph2, new StringReader(graph.toString()));
-		ContextNode contextNode2 = graph.getDeepContextNode(XDI3Segment.create("=markus"));
+		ContextNode contextNode2 = graph.getDeepContextNode(XDIAddress.create("=markus"));
 
-		XdiAttributeCollection telCollection2 = XdiAbstractContext.fromContextNode(contextNode2).getXdiAttributeCollection(XDI3SubSegment.create("[<+tel>]"), false);
+		XdiAttributeCollection telCollection2 = XdiAbstractContext.fromContextNode(contextNode2).getXdiAttributeCollection(XDIArc.create("[<+tel>]"), false);
 
 		for (Iterator<XdiAttributeMemberUnordered> i = telCollection2.getXdiMembersUnordered(); i.hasNext(); ) {
 
