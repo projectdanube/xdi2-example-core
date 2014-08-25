@@ -21,9 +21,9 @@ public class SimpleCoreSample {
 		ContextNode root = graph.getRootContextNode();
 		ContextNode markus = root.setContextNode(XDIArc.create("=markus"));
 		ContextNode animesh = root.setContextNode(XDIArc.create("=animesh"));
-		ContextNode name = markus.setContextNode(XDIArc.create("<+name>"));
+		ContextNode name = markus.setContextNode(XDIArc.create("<#name>"));
 		ContextNode value = name.setContextNode(XDIArc.create("&"));
-		Relation relation = markus.setRelation(XDIAddress.create("+friend"), animesh);
+		Relation relation = markus.setRelation(XDIAddress.create("#friend"), animesh);
 		Literal literal = value.setLiteral("Markus Sabadello");
 
 		// write some statements from our graph
@@ -31,15 +31,17 @@ public class SimpleCoreSample {
 		System.out.println("Statement associated with a context node: " + markus.getStatement());
 		System.out.println("Statement associated with a relation: " + relation.getStatement());
 		System.out.println("Statement associated with a literal: " + literal.getStatement());
+		System.out.println();
 
 		// we can also add a whole new statement to the graph
 
-		graph.setStatement(XDIStatement.create("=alice/+friend/=bob"));
+		graph.setStatement(XDIStatement.create("=alice/#friend/=bob"));
 
 		// write the whole graph in different serialization formats
 
 		System.out.println("Serialization in XDI/JSON: \n");
 		XDIWriterRegistry.forFormat("XDI/JSON", null).write(graph, System.out);
+		System.out.println();
 		System.out.println();
 
 		System.out.println("Serialization in XDI statements:\n");
