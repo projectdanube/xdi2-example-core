@@ -1,4 +1,4 @@
-xdi2-example-core
-=================
+<a href="http://projectdanube.org/" target="_blank"><img src="http://projectdanube.github.com/xdi2/images/projectdanube_logo.png" align="right"></a>
+<img src="http://projectdanube.github.com/xdi2/images/logo64.png"><br>
 
-XDI2 Examples: Getting started
+Examples using the xdi2-core component
