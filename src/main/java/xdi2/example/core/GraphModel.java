@@ -10,7 +10,7 @@ import xdi2.core.syntax.XDIAddress;
 import xdi2.core.syntax.XDIArc;
 import xdi2.core.syntax.XDIStatement;
 
-public class GettingStarted {
+public class GraphModel {
 
 	public static void main(String[] args) throws Exception {
 
