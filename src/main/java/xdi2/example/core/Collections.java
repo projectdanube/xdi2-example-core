@@ -14,7 +14,7 @@ import xdi2.core.io.XDIReaderRegistry;
 import xdi2.core.syntax.XDIAddress;
 import xdi2.core.syntax.XDIArc;
 
-public class ContextNodeTypesSample {
+public class Collections {
 
 	public static void main(String[] args) throws Exception {
 

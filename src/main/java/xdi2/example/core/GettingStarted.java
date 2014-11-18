@@ -10,7 +10,7 @@ import xdi2.core.syntax.XDIAddress;
 import xdi2.core.syntax.XDIArc;
 import xdi2.core.syntax.XDIStatement;
 
-public class SimpleCoreSample {
+public class GettingStarted {
 
 	public static void main(String[] args) throws Exception {
 
