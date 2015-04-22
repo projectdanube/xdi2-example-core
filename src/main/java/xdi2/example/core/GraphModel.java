@@ -2,7 +2,7 @@ package xdi2.example.core;
 
 import xdi2.core.ContextNode;
 import xdi2.core.Graph;
-import xdi2.core.Literal;
+import xdi2.core.LiteralNode;
 import xdi2.core.Relation;
 import xdi2.core.impl.memory.MemoryGraphFactory;
 import xdi2.core.io.XDIWriterRegistry;
@@ -24,13 +24,13 @@ public class GraphModel {
 		ContextNode name = markus.setContextNode(XDIArc.create("<#name>"));
 		ContextNode value = name.setContextNode(XDIArc.create("&"));
 		Relation relation = markus.setRelation(XDIAddress.create("#friend"), animesh);
-		Literal literal = value.setLiteral("Markus Sabadello");
+		LiteralNode literalNode = value.setLiteralNode("Markus Sabadello");
 
 		// write some statements from our graph
 
 		System.out.println("Statement associated with a context node: " + markus.getStatement());
 		System.out.println("Statement associated with a relation: " + relation.getStatement());
-		System.out.println("Statement associated with a literal: " + literal.getStatement());
+		System.out.println("Statement associated with a literal: " + literalNode.getStatement());
 		System.out.println();
 
 		// we can also add a whole new statement to the graph
