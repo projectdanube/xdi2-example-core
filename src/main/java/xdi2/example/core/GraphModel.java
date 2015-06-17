@@ -22,9 +22,8 @@ public class GraphModel {
 		ContextNode markus = root.setContextNode(XDIArc.create("=markus"));
 		ContextNode animesh = root.setContextNode(XDIArc.create("=animesh"));
 		ContextNode name = markus.setContextNode(XDIArc.create("<#name>"));
-		ContextNode value = name.setContextNode(XDIArc.create("&"));
 		Relation relation = markus.setRelation(XDIAddress.create("#friend"), animesh);
-		LiteralNode literalNode = value.setLiteralNode("Markus Sabadello");
+		LiteralNode literalNode = name.setLiteralNode("Markus Sabadello");
 
 		// write some statements from our graph
 
