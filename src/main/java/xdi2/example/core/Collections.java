@@ -24,8 +24,8 @@ public class Collections {
 		ContextNode contextNode = graph.getRootContextNode().setContextNode(XDIArc.create("=markus"));
 
 		XdiAttributeCollection telAttributeCollection = XdiAbstractContext.fromContextNode(contextNode).getXdiAttributeCollection(XDIArc.create("[<#tel>]"), true);
-		telAttributeCollection.setXdiInstanceUnordered(true, false).setLiteralDataString("+1.206.555.1111");
-		telAttributeCollection.setXdiInstanceUnordered(true, false).setLiteralDataString("+1.206.555.2222");
+		telAttributeCollection.setXdiInstanceUnordered(true, false).setLiteralString("+1.206.555.1111");
+		telAttributeCollection.setXdiInstanceUnordered(true, false).setLiteralString("+1.206.555.2222");
 
 		System.out.println(graph.toString(new MimeType("application/xdi+json;pretty=1")));
 
